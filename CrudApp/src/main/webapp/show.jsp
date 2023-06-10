@@ -14,6 +14,15 @@
 </head>
 <body>
 
+<%
+
+	if(request.getAttribute("msg")!=null)
+	{
+		out.println(request.getAttribute("msg"));
+	}
+
+%>
+
 <table class="table table-hover">
 
 <tr>
@@ -50,7 +59,10 @@
 		</form>
 		</td>
 		<td>
+		<form name="delete" method="post" action="EmpController">
+		<input type="hidden" name="id" value="<%=e.getId()%>">
 			<input type="submit" name="action" value="Delete" class="btn btn-danger">
+		</form>
 		</td>
 	</tr>
 

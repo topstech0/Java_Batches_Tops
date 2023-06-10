@@ -50,7 +50,27 @@ public class EmpController extends HttpServlet {
 			request.setAttribute("e", e);
 			request.getRequestDispatcher("update.jsp").forward(request, response);			
 		}
-		
+		else if(action.equalsIgnoreCase("update"))
+		{
+			Employee e = new Employee();
+			e.setId(Integer.parseInt(request.getParameter("id")));
+			e.setFname(request.getParameter("fname"));
+			e.setLname(request.getParameter("lname"));
+			e.setEmail(request.getParameter("email"));
+			e.setMobile(Long.parseLong(request.getParameter("mobile")));
+			e.setDob(request.getParameter("dob"));
+			e.setGender(request.getParameter("gender"));
+			e.setAddress(request.getParameter("address"));
+			EmpDao.updateEmp(e);
+			request.setAttribute("msg", "Data Updated succesfully.");
+			request.getRequestDispatcher("show.jsp").forward(request, response);
+		}
+		else if(action.equalsIgnoreCase("delete"))
+		{
+			int id= Integer.parseInt(request.getParameter("id"));
+			EmpDao.deleteEmp(id);
+			response.sendRedirect("show.jsp");
+		}
 		
 		
 	}

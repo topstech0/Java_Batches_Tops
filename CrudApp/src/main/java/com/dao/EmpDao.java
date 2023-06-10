@@ -90,8 +90,39 @@ public class EmpDao {
 	}
 	
 	
+	public static void updateEmp(Employee e)
+	{
+		try {
+			Connection conn = EmpUtil.createConnection();
+			String sql="update emp set fname=?,lname=?,email=?,mobile=?,dob=?,gender=?,address=? where id=?";
+			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setString(1, e.getFname());
+			pst.setString(2, e.getLname());
+			pst.setString(3, e.getEmail());
+			pst.setLong(4, e.getMobile());
+			pst.setString(5, e.getDob());
+			pst.setString(6, e.getGender());
+			pst.setString(7, e.getAddress());
+			pst.setInt(8, e.getId());
+			pst.executeUpdate();		
+			
+		} catch (Exception e2) {
+			e2.printStackTrace();
+		}
+	}
 	
-	
+	public static void deleteEmp(int id)
+	{
+		try {
+			Connection conn= EmpUtil.createConnection();
+			String sql = "delete from emp where id=?";
+			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setInt(1, id);
+			pst.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 	
 	
