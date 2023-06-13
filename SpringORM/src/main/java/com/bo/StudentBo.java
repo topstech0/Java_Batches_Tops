@@ -1,19 +1,24 @@
 package com.bo;
 
+import com.bean.Student;
 import com.dao.StudentDao;
 
 public class StudentBo {
 
-	private StudentDao studentdao;
+	private StudentDao studentDao;
 
-	public StudentDao getStudentdao() {
-		return studentdao;
+	public StudentDao getStudentDao() {
+		return studentDao;
 	}
 
-	public void setStudentdao(StudentDao studentdao) {
-		this.studentdao = studentdao;
+	public void setStudentDao(StudentDao studentDao) {
+		this.studentDao = studentDao;
 	}
-	
+
+	public void insertStudent(Student s)
+	{
+		this.studentDao.insertStudent(s);
+	}
 	
 	
 }

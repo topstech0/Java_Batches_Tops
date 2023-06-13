@@ -47,11 +47,12 @@
                         <li class="nav-item">
                            <a class="nav-link" href="product.jsp">Products</a>
                         </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="blog_list.html">Blog</a>
-                        </li>
+                        
                         <li class="nav-item">
                            <a class="nav-link" href="contact.jsp">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="register.jsp">Sign Up</a>
                         </li>
                         <li class="nav-item">
                            <a class="nav-link" href="#">

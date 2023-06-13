@@ -16,7 +16,7 @@
             <div class="row">
                <div class="col-md-12">
                   <div class="full">
-                     <h3>Contact us</h3>
+                     <h3>Sign Up</h3>
                   </div>
                </div>
             </div>
@@ -38,13 +38,29 @@
             <div class="row">
                <div class="col-lg-8 offset-lg-2">
                   <div class="full">
-                     <form action="ContactController" name="contact" method="post">
+                     <form action="UserController" name="signup" method="post">
                         <fieldset>
-                           <input type="text" placeholder="Enter your full name" name="name" required />
+                           <input type="text" placeholder="Enter your First name" name="fname" required />
+                           <input type="text" placeholder="Enter your Last name" name="lname" required />
                            <input type="email" placeholder="Enter your email address" name="email" required />
-                           <input type="text" placeholder="Enter subject" name="subject" required />
-                           <textarea placeholder="Enter your message" required name="message"></textarea>
-                           <input type="submit" value="Submit" name="action"/>
+                           <input type="text" placeholder="Enter your Mobile No." name="mobile" required />
+                           <input type="password" placeholder="Enter Password" name="password" required />
+                           <input type="password" placeholder="Enter Confirm Password" name="cpassword" required />
+                           <table>
+                           <tr>
+                           <td>Gender : </td>
+                           <td>
+                           		<input type="radio" name="gender" value="male"/>Male
+                           		</td>
+                           		<td>
+                           <input type="radio" name="gender" value="female"/>Female 
+                           </td>
+                           </tr>
+                           
+                           </table>
+                                                     
+                           <textarea placeholder="Enter your Address" required name="address"></textarea>
+                           <input type="submit" value="Sign Up" name="action"/>
                         </fieldset>
                      </form>
                   </div>
