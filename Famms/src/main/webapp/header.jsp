@@ -1,3 +1,4 @@
+<%@page import="com.bean.User"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -37,24 +38,71 @@
                         <li class="nav-item active">
                            <a class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a>
                         </li>
-                       <li class="nav-item dropdown">
-                           <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">Pages <span class="caret"></span></a>
-                           <ul class="dropdown-menu">
-                              <li><a href="about.html">About</a></li>
-                              <li><a href="testimonial.html">Testimonial</a></li>
-                           </ul>
-                        </li>
+                    
                         <li class="nav-item">
                            <a class="nav-link" href="product.jsp">Products</a>
                         </li>
+                       
                         
                         <li class="nav-item">
                            <a class="nav-link" href="contact.jsp">Contact</a>
                         </li>
-                        <li class="nav-item">
+                        
+                        <%
+                        	User u = null;
+    		  				if(session!=null)
+    		  				{
+    		  					if(session.getAttribute("u")!=null)
+    		  					{
+    		  						u = (User)session.getAttribute("u");
+    		  						
+    		  						
+    		  			%>
+    		  			 <li class="nav-item">
+                           <a class="nav-link" href="profile.jsp">Profile</a>
+                        </li>
+    		  			
+    		  					 <li class="nav-item">
+                           <a class="nav-link" href="changepassword.jsp">Change Password</a>
+                        </li>
+    		  				 <li class="nav-item">
+                           <a class="nav-link" href="logout.jsp">Logout (<%=u.getFname() %>)</a>
+                        </li>
+    		  			
+    		  			<%
+    		  					}
+    		  					else
+    		  					{
+    		  			%>
+    		  					<li class="nav-item">
                            <a class="nav-link" href="register.jsp">Sign Up</a>
                         </li>
                         <li class="nav-item">
+                           <a class="nav-link" href="login.jsp">Login</a>
+                        </li>
+    		  			<%
+    		  					}   		  					
+    		  				
+    		  				}
+    		  				else
+    		  				{
+    		  			%>
+    		  			<li class="nav-item">
+                           <a class="nav-link" href="register.jsp">Sign Up</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="login.jsp">Login</a>
+                        </li>
+    		  			
+    		  			<%
+    		  				}
+    		  	
+                        
+                        
+    		  			  %>
+                          
+                          
+                          <li class="nav-item">
                            <a class="nav-link" href="#">
                               <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                                  <g>
