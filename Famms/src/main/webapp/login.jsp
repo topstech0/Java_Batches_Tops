@@ -38,13 +38,17 @@
             <div class="row">
                <div class="col-lg-8 offset-lg-2">
                   <div class="full">
-                     <form action="UserController" name="login" method="post">
-                        <fieldset>
+                     <form action="UserController" name="login" method="post">                       
                            
                            <input type="email" placeholder="Enter your email address" name="email" required />
                            <input type="password" placeholder="Enter your password" name="password" required />                           
-                           <input type="submit" value="Login" name="action"/>
-                        </fieldset>
+                           <input type="submit" value="Login" name="action"/>                     
+							<a href="forgotpassword.jsp">		
+							 Forgot Password?			
+							</a>
+                          
+                           
+                        
                      </form>
                   </div>
                </div>

@@ -39,6 +39,20 @@
                <div class="col-lg-8 offset-lg-2">
                   <div class="full">
                      <form action="UserController" name="signup" method="post">
+                     	<table>
+                           <tr>
+                           <td><b>UserType : </b></td>
+                           <td></td>
+                           <td>
+                           		<input type="radio" name="usertype" value="user"/>User
+                           		</td>
+                           		<td>
+                           <input type="radio" name="usertype" value="seller"/>Seller 
+                           </td>
+                           </tr>
+                           
+                           </table>
+                           <br>
                         <fieldset>
                            <input type="text" placeholder="Enter your First name" name="fname" required />
                            <input type="text" placeholder="Enter your Last name" name="lname" required />

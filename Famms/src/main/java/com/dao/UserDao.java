@@ -13,7 +13,7 @@ public class UserDao {
 	{
 		try {
 			Connection conn = FammsUtil.createConnection();
-			String sql = "insert into user (fname,lname,email,mobile,password,cpassword,gender,address) values (?,?,?,?,?,?,?,?)";
+			String sql = "insert into user (fname,lname,email,mobile,password,cpassword,gender,address,usertype) values (?,?,?,?,?,?,?,?,?)";
 			PreparedStatement pst = conn.prepareStatement(sql);
 			pst.setString(1, u.getFname());
 			pst.setString(2, u.getLname());
@@ -23,6 +23,7 @@ public class UserDao {
 			pst.setString(6, u.getCpassword());
 			pst.setString(7, u.getGender());
 			pst.setString(8, u.getAddress());
+			pst.setString(9, u.getUsertype());
 			pst.executeUpdate();			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -72,6 +73,7 @@ public class UserDao {
 				u.setCpassword(rs.getString("cpassword"));
 				u.setGender(rs.getString("gender"));
 				u.setAddress(rs.getString("address"));
+				u.setUsertype(rs.getString("usertype"));
 			}
 			
 		} catch (Exception e) {
@@ -98,14 +100,15 @@ public class UserDao {
 	{
 		try {
 			Connection conn = FammsUtil.createConnection();
-			String sql = "update user set fname=?,lname=?,mobile=?,gender=?,address=? where email=?";
+			String sql = "update user set fname=?,lname=?,mobile=?,gender=?,address=?,usertype=? where email=?";
 			PreparedStatement pst = conn.prepareStatement(sql);
 			pst.setString(1, u.getFname());
 			pst.setString(2, u.getLname());			
 			pst.setLong(3, u.getMobile());			
 			pst.setString(4, u.getGender());
 			pst.setString(5, u.getAddress());
-			pst.setString(6, u.getEmail());			
+			pst.setNString(6, u.getUsertype());
+			pst.setString(7, u.getEmail());			
 			pst.executeUpdate();			
 		} catch (Exception e) {
 			e.printStackTrace();
