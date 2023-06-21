@@ -9,14 +9,14 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name="springorm")
+@Table(name="Spring_ORM")
 public class Student {
-	
-	int id;
-	String fname,lname,email;
+
+	private int id;
+	private String fname,lname,email;
 	
 	@Id
-	@GenericGenerator(name="inc",strategy = "increment")
+	@GenericGenerator(name = "inc",strategy = "increment")
 	@GeneratedValue(generator = "inc")
 	public int getId() {
 		return id;
@@ -24,21 +24,21 @@ public class Student {
 	public void setId(int id) {
 		this.id = id;
 	}
-	@Column(name="Fname")
+	@Column(name = "FNAME")
 	public String getFname() {
 		return fname;
 	}
 	public void setFname(String fname) {
 		this.fname = fname;
 	}
-	@Column(name="Lname")
+	@Column(name = "LNAME")
 	public String getLname() {
 		return lname;
 	}
 	public void setLname(String lname) {
 		this.lname = lname;
 	}
-	@Column(name="Email")
+	@Column(name = "EMAIL")
 	public String getEmail() {
 		return email;
 	}
@@ -46,7 +46,4 @@ public class Student {
 		this.email = email;
 	}
 	
-	
-	
-
 }

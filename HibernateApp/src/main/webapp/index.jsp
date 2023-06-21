@@ -50,6 +50,6 @@
 </table>
 </form>
 
-
+<a href="show.jsp">Show All Employees</a>
 </body>
 </html>
