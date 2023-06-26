@@ -30,7 +30,29 @@ package com.basics;
  * 
  * 
  * 2) do..while loop
- * 3) for loop
+ * 
+ * 		syntax:
+ * 					initialization
+ * 
+ * 					do
+ * 					{
+ * 						//statement;
+ * 					}
+ * 					while(condition);
+ * 
+ * - it is also called as Exit Controlled Loop.
+ * - Because the body is executed first and then the condition is checked.
+ * - it will execute atleast once even if the condition is false.
+ * - semi-colon after condition.
+ * 
+ * 3) for loop : All in one line.
+ * 
+ * - syntax: 
+ * 
+ * 			for(initialization;condition;updation)
+ * 			{
+ * 				//statement;
+ * 			}
  * 
  */
 
@@ -48,12 +70,31 @@ public class LoopDemo {
 		}
 		*/
 		
+		/*
 		int i = 100;
 		while(i>=1)
 		{
 			System.out.println(i);
 			i--;
 		}
+		*/
+		
+		/*
+		int i=1; // initialization
+		
+		do
+		{
+			System.out.println(i);
+			i++;
+		}
+		while(i<=100);
+		*/
+		
+		for(int i=2;i<=100;i=i+2)   // i = i+2 //Oddno
+		{
+			System.out.println(i);
+		}
+		
 		
 		
 	}
