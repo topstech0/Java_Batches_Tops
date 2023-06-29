@@ -6,55 +6,63 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.bean.Cart;
 import com.bean.Wishlist;
 import com.util.FammsUtil;
 
-public class WishlistDao {
+public class CartDao {
 	
-	public static void addToWishlist(Wishlist w)
+	public static void addToCart(Cart c)
 	{
 		try {
+			
 			Connection conn = FammsUtil.createConnection();
-			String sql = "insert into wishlist (pid,uid) values (?,?)";
+			String sql = "insert into cart (pid,uid,c_price,c_qty,total_price) values (?,?,?,?,?)";
 			PreparedStatement pst = conn.prepareStatement(sql);
-			pst.setInt(1, w.getPid());
-			pst.setInt(2, w.getUid());
+			pst.setInt(1, c.getPid());
+			pst.setInt(2, c.getUid());
+			pst.setInt(3, c.getC_price());
+			pst.setInt(4, c.getC_qty());
+			pst.setInt(5, c.getTotal_price());
 			pst.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public static List<Wishlist> getWishlistByUser(int uid)
+	public static List<Cart> getCartByUser(int uid)
 	{
-		List<Wishlist> list = new ArrayList<Wishlist>();
+		List<Cart> list = new ArrayList<Cart>();
+				
 		try {
 			Connection conn = FammsUtil.createConnection();
-			String sql = "select * from wishlist where uid=?";
+			String sql = "select * from cart where uid=?";
 			PreparedStatement pst = conn.prepareStatement(sql);
 			pst.setInt(1, uid);
-			ResultSet rs = pst.executeQuery();
+			ResultSet rs = pst.executeQuery();			
 			while(rs.next())
 			{
-				Wishlist w = new Wishlist();
-				w.setWid(rs.getInt("wid"));
-				w.setPid(rs.getInt("pid"));
-				w.setUid(rs.getInt("uid"));
-				list.add(w);
+				Cart c = new Cart();
+				c.setCid(rs.getInt("cid"));
+				c.setPid(rs.getInt("pid"));
+				c.setUid(rs.getInt("uid"));
+				c.setC_price(rs.getInt("c_price"));
+				c.setC_qty(rs.getInt("c_qty"));
+				c.setTotal_price(rs.getInt("total_price"));
+				list.add(c);
 			}
-					
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return list;
 	}
 	
-	public static boolean checkWishlist(int uid,int pid)
+	public static boolean checkCart(int uid,int pid)
 	{
 		boolean flag = false;
 		try {
 			Connection conn = FammsUtil.createConnection();
-			String sql = "select * from wishlist where uid=? and pid=?";
+			String sql = "select * from cart where uid=? and pid=?";
 			PreparedStatement pst = conn.prepareStatement(sql);
 			pst.setInt(1, uid);
 			pst.setInt(2, pid);
@@ -69,19 +77,18 @@ public class WishlistDao {
 		return flag;
 	}
 	
-	public static void removeFromWishlist(Wishlist w)
+	public static void removeFromCart(Cart c)
 	{
 		try {
 			Connection conn = FammsUtil.createConnection();
-			String sql = "delete from wishlist where pid=? and uid=?";
+			String sql = "delete from cart where pid=? and uid=?";
 			PreparedStatement pst = conn.prepareStatement(sql);
-			pst.setInt(1, w.getPid());
-			pst.setInt(2, w.getUid());
+			pst.setInt(1, c.getPid());
+			pst.setInt(2, c.getUid());
 			pst.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
 
 }

@@ -3,10 +3,10 @@
 <%
 int pid = Integer.parseInt(request.getParameter("pid"));
 int uid = Integer.parseInt(request.getParameter("uid"));
+
 Wishlist w = new Wishlist();
 w.setPid(pid);
 w.setUid(uid);
-WishlistDao.addToWishlist(w);
+WishlistDao.removeFromWishlist(w);
 response.sendRedirect("mywishlist.jsp");
-
 %>

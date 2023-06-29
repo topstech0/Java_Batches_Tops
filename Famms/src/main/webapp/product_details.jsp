@@ -1,3 +1,5 @@
+<%@page import="com.dao.CartDao"%>
+<%@page import="com.dao.WishlistDao"%>
 <%@page import="com.dao.ProductDao"%>
 <%@page import="com.bean.Product"%>
 <%@page import="java.util.List"%>
@@ -42,13 +44,50 @@
                            
                            if(session.getAttribute("u")!=null)
                            {
-                       	   %>
-                         <a href="add_to_wishlist.jsp?pid=<%=p.getPid()%>&uid=<%=u.getUid()%>" class="option2">
+                        	   boolean flag = WishlistDao.checkWishlist(u.getUid(), p.getPid());
+                        	   boolean flag1 = CartDao.checkCart(u.getUid(), p.getPid());
+                        	   if(flag ==false)
+                        	   {
+                        	%>
+                        	
+                        	<a href="add_to_wishlist.jsp?pid=<%=p.getPid()%>&uid=<%=u.getUid()%>" class="option2">
                           Add to Wishlist
                            </a>
-                         <a href="add_to_cart.jsp?pid=<%=p.getPid()%>&uid=<%=u.getUid()%>" class="option1">
+                        	<%
+                        		   
+                        	   }
+                        	   else
+                        	   {
+                        	%>
+                        	<a href="remove_from_wishlist.jsp?pid=<%=p.getPid()%>&uid=<%=u.getUid()%>" class="option2">
+                          Remove from Wishlist
+                           </a>
+                        	
+                        	<%	   
+                        	   }
+                        	   
+                        	   if(flag1==false)
+                        	   {
+                        	%>
+                        	<a href="add_to_cart.jsp?pid=<%=p.getPid()%>&uid=<%=u.getUid()%>" class="option1">
                           Add to Cart
                            </a>
+                        	<%   
+                        	   }
+                        	   else
+                        	   {
+                        	%>
+                        	<a href="remove_from_cart.jsp?pid=<%=p.getPid()%>&uid=<%=u.getUid()%>" class="option1">
+                          Remove from Cart
+                           </a>
+                        	
+                        	<%
+                        		   
+                        	   }
+                        			   
+                       	   %>
+                        
+                         
                        		 <%
                         	   
                            }

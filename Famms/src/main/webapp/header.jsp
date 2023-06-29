@@ -71,17 +71,19 @@
                            <a class="nav-link" href="changepassword.jsp">Change Password</a>
                        
                         
-                         <li class="nav-item">
-                           <a class="nav-link" href="mycart.jsp">
-                              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                           </a>                           
-                        </li>
+                         
                          <li class="nav-item">
                            <a class="nav-link" href="mywishlist.jsp">
                               <i class="fa fa-heart" aria-hidden="true"></i>
                            </a>                           
                         </li>
-                         </li>
+                        
+                        <li class="nav-item">
+                           <a class="nav-link" href="mycart.jsp">
+                              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                           </a>                           
+                        </li>
+                        
     		  				 <li class="nav-item">
                            <a class="nav-link" href="logout.jsp">Logout (<%=u.getFname() %>)</a>
                         </li>
