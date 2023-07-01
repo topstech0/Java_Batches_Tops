@@ -34,21 +34,37 @@
 			%>
 			
 			<div class="col-sm-6 col-md-4 col-lg-4">
-					<div class="box">
+					<div style="border:3px solid grey">
 						<div class="option_container">
-							<div class="options">
+							<%-- <div class="options">
 								<!-- <a href="" class="option1"> Men's Shirt </a> --> 
 								<a href="product_details.jsp?pid=<%=p.getPid() %>"
 									class="option2"> Details </a>
-							</div>
+							</div> --%>
 						</div>
-						<div class="img-box">
-							<img src="Product_Images/<%=p.getP_image() %>" alt="">
+						<br>
+						<div >
+						<p align="center">
+							<img src="Product_Images/<%=p.getP_image() %>" width="200px" height="280px">
+							</p>
+							<hr>
+						<b>Product Category : </b><%=p.getP_category() %>
+						<hr>
+						<span style="color:red"><b>Product Price : </b></span>Rs. <%=c.getC_price()%>
+							<hr>
 						</div>
-						<div class="detail-box">
-							<h5><%=p.getP_category() %></h5>
-							<h6>Rs. <%=p.getP_price() %></h6>
+						
+						<div >
+						<form name="qty" method="post" action="CartController">
+							<input type="hidden" name="cid" value="<%=c.getCid()%>">
+							<b>Quantity :</b> 					
+							<input type="number" name="p_qty" min="1" max="10" value="<%=c.getC_qty()%>" onchange="this.form.submit();">							
+							<b>Total Price : </b> <%=c.getTotal_price() %>
+						<hr>
+						</form>
 						</div>
+						
+						
 					</div>
 				</div>
 			

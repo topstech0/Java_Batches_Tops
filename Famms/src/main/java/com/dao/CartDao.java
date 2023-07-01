@@ -90,5 +90,47 @@ public class CartDao {
 			e.printStackTrace();
 		}
 	}
+	
+	public static Cart getCartById(int cid)
+	{
+		Cart c = null;
+		try {
+			Connection conn = FammsUtil.createConnection();
+			String sql = "select * from cart where cid=?";
+			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setInt(1, cid);
+			ResultSet rs = pst.executeQuery();
+			if(rs.next())
+			{
+				c = new Cart();
+				c.setCid(rs.getInt("cid"));
+				c.setPid(rs.getInt("pid"));
+				c.setUid(rs.getInt("uid"));
+				c.setC_price(rs.getInt("c_price"));
+				c.setC_qty(rs.getInt("c_qty"));
+				c.setTotal_price(rs.getInt("total_price"));				
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return c;
+	}
+	
+	public static void updateCart(Cart c)
+	{
+		try {
+			Connection conn= FammsUtil.createConnection();
+			String sql = "update cart set c_qty=?,total_price=? where cid=?";
+			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setInt(1, c.getC_qty());
+			pst.setInt(2, c.getTotal_price());
+			pst.setInt(3, c.getCid());
+			pst.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 
 }
