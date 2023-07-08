@@ -38,14 +38,14 @@
 		<td><%=s.getLname()%></td>
 		<td><%=s.getEmail() %></td>
 		<td>
-		<form name="edit" action="StudentController">
+		<form name="edit" action="edit" method="post">
 		<input type="hidden" name="id" value="<%=s.getId()%>">
 		<input type="submit" name="action" value="Edit" class="btn btn-primary">		
 		</form>
 		
 		</td>
 		<td>
-			<form name="delete" action="StudentController">
+			<form name="delete" action="delete" method="post">
 		<input type="hidden" name="id" value="<%=s.getId()%>">
 		<input type="submit" name="action" value="Delete" class="btn btn-primary">		
 		</form>
@@ -58,6 +58,7 @@
 
 </table>
 
-<a href="insert">Add New Student</a>
+<a href="insert.jsp">Add New Student</a>
+
 </body>
 </html>

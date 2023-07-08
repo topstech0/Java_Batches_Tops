@@ -23,7 +23,13 @@ public class StudentDao {
 	@Transactional
 	public void insertStudent(Student s)
 	{
-		getHibernateTemplate().saveOrUpdate(s);
+		getHibernateTemplate().save(s);
+	}
+	
+	@Transactional
+	public void updateStudent(Student s)
+	{
+		getHibernateTemplate().update(s);
 	}
 	
 	@Transactional
@@ -32,5 +38,31 @@ public class StudentDao {
 		return hibernateTemplate.loadAll(Student.class);
 	}
 	
+	@Transactional
+	public Student getStudentById(int id)
+	{
+		return this.hibernateTemplate.get(Student.class, id);
+	}
+	
+	@Transactional
+	public void deleteStudent(int id)
+	{
+		Student s = this.hibernateTemplate.get(Student.class, id);
+		this.hibernateTemplate.delete(s);
+	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
