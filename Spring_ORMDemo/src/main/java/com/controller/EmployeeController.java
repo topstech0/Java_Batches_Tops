@@ -33,6 +33,30 @@ public class EmployeeController extends HttpServlet {
 			employeeDao.insertEmp(e);
 			response.sendRedirect("show.jsp");
 		}
+		else if(action.equalsIgnoreCase("edit"))
+		{
+			int id = Integer.parseInt(request.getParameter("id"));
+			Employee e = employeeDao.getEmpById(id);
+			request.setAttribute("e", e);
+			request.getRequestDispatcher("update.jsp").forward(request, response);
+		}
+		else if(action.equalsIgnoreCase("update"))
+		{
+			Employee e= new Employee();
+			e.setId(Integer.parseInt(request.getParameter("id")));
+			e.setFname(request.getParameter("fname"));
+			e.setLname(request.getParameter("lname"));
+			e.setEmail(request.getParameter("email"));
+			employeeDao.insertEmp(e);
+			response.sendRedirect("show.jsp");
+		}
+		else if(action.equalsIgnoreCase("delete"))
+		{
+			int id = Integer.parseInt(request.getParameter("id"));
+			employeeDao.deleteEmployee(id);
+			response.sendRedirect("show.jsp");
+		}
+		
 	}
 
 }

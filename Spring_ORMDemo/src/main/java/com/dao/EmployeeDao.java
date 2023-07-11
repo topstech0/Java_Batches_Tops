@@ -32,4 +32,18 @@ public class EmployeeDao {
 		return this.hibernateTemplate.loadAll(Employee.class);
 	}
 	
+	@Transactional
+	public Employee getEmpById(int id)
+	{
+		return this.hibernateTemplate.get(Employee.class, id);
+	}
+	
+	@Transactional
+	public void deleteEmployee(int id)
+	{
+		Employee e= this.hibernateTemplate.get(Employee.class, id);
+		this.hibernateTemplate.delete(e);
+	}
+	
+	
 }

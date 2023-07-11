@@ -44,7 +44,7 @@ for(Employee e : list)
 		<td>
 			<form name="edit" method="post" action="EmployeeController">
 			<input type="hidden" name="id" value="<%=e.getId()%>">
-			<input type="submit" name="action" value="Edit" class="btn btn-danger">			
+			<input type="submit" name="action" value="Edit" class="btn btn-primary">			
 			</form>
 		</td>
 		<td>
