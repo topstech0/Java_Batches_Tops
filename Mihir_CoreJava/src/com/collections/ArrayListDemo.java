@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * In Java language, we have Collection
  * 
  *  
- *   ArrayList : 
+ *   ArrayList : it belongs to the List interface.
  *   
  *   - it is similar like an Array, but it stores multiple values of multiple types.
  *   - Index value starts from 0.
