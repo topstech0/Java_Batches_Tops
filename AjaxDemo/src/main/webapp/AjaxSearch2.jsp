@@ -14,7 +14,7 @@
 		
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/frameworks", "root", "");
-			PreparedStatement pst = conn.prepareStatement("select * from student where email=?");
+			PreparedStatement pst = conn.prepareStatement("select * from employee where email=?");
 			pst.setString(1, name);
 			ResultSet rs = pst.executeQuery();
 			if(rs.next())
