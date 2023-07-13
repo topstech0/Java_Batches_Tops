@@ -13,8 +13,8 @@
 		try{
 		
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/frameworks", "root", "");
-			PreparedStatement pst = conn.prepareStatement("select * from employee where email=?");
+			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/famms", "root", "");
+			PreparedStatement pst = conn.prepareStatement("select * from user where email=?");
 			pst.setString(1, name);
 			ResultSet rs = pst.executeQuery();
 			if(rs.next())

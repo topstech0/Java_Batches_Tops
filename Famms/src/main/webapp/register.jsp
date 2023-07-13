@@ -4,7 +4,32 @@
 <!DOCTYPE html>
 <html>
    <head>
-     
+     <script >
+var request = new XMLHttpRequest();
+function searchInfo()
+{
+	var name=document.signup.email.value;
+	var url = "AjaxSearch2.jsp?val="+name;
+	//var url = "AjaxSearch.jsp?val="+name;
+	try {
+		request.onreadystatechange=function()
+		{
+			if(request.readyState==4)
+			{
+				var val = request.responseText;
+				document.getElementById('tops').innerHTML=val;
+			}
+		}
+		
+		request.open("GET",url,true);
+		request.send();
+		
+	} catch (e) {
+		alert("Unable to connect to server.")
+	}
+}
+
+</script>
    </head>
    <body class="sub_page">
       <div class="hero_area">
@@ -56,7 +81,8 @@
                         <fieldset>
                            <input type="text" placeholder="Enter your First name" name="fname" required />
                            <input type="text" placeholder="Enter your Last name" name="lname" required />
-                           <input type="email" placeholder="Enter your email address" name="email" required />
+                           <input type="email" placeholder="Enter your email address" name="email" onblur="searchInfo()" />
+                           <span id="tops"></span>
                            <input type="text" placeholder="Enter your Mobile No." name="mobile" required />
                            <input type="password" placeholder="Enter Password" name="password" required />
                            <input type="password" placeholder="Enter Confirm Password" name="cpassword" required />

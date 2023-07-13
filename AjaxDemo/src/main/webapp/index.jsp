@@ -37,12 +37,12 @@ function searchInfo()
 <body>
 <h1>AJAX Example</h1>
 <form name="myform">
-<!-- 
+<!--
 Enter Email : 
 <input type="text" name="name" onblur="searchInfo()">
 <input type="submit" name="submit" id="submit" value="Submit">
 -->
- 
+  
 Enter First Name :  
 <input type="text" name="name" onkeyup="searchInfo()">
 <input type="submit" name="submit" id="submit" value="Submit">

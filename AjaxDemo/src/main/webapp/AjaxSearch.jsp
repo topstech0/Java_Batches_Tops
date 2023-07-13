@@ -19,10 +19,12 @@ else
 		if(rs.isBeforeFirst())
 		{
 			out.print("<table border='5' cellpadding='5' width='100%'>");
-			out.print("<tr><th>ID</th><th>FName</th><th>LName</th><th>Email</th><th>Gender</th><th>Address</th><th>Mobile</th></tr>");
+			//out.print("<tr><th>ID</th><th>FName</th><th>LName</th><th>Email</th><th>Gender</th><th>Address</th><th>Mobile</th></tr>");
+			out.print("<tr><th>FName</th></tr>");
 			while(rs.next())
 			{
-				out.print("<tr><td>"+rs.getString(1)+"</td><td>"+rs.getString(2)+"</td><td>"+rs.getString(3)+"</td><td>"+rs.getString(4)+"</td><td>"+rs.getString(5)+"</td><td>"+rs.getString(6)+"</td><td>"+rs.getString(7)+"</td></tr>");
+				//out.print("<tr><td>"+rs.getString(1)+"</td><td>"+rs.getString(2)+"</td><td>"+rs.getString(3)+"</td><td>"+rs.getString(4)+"</td><td>"+rs.getString(5)+"</td><td>"+rs.getString(6)+"</td><td>"+rs.getString(7)+"</td></tr>");
+				out.print("<tr><td>"+rs.getString(2)+"</td></tr>");
 			}
 			out.print("</table>");
 		}
